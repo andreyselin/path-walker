@@ -1,5 +1,5 @@
 {
-  "name": "path-walker",
+  "name": "pathwalker2d",
   "version": "1.0.0",
   "description": "Utility class for moving objects along 2d path",
   "main": "index.js",
