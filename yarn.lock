@@ -5,9 +5,9 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"path-walker@workspace:.":
+"pathwalker2d@workspace:.":
   version: 0.0.0-use.local
-  resolution: "path-walker@workspace:."
+  resolution: "pathwalker2d@workspace:."
   dependencies:
     typescript: ^4.4.2
   languageName: unknown

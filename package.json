@@ -1,10 +1,9 @@
 {
   "name": "pathwalker2d",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility class for moving objects along 2d path",
   "main": "index.js",
   "scripts": {
-    "build0": "rm -rf types && tsc",
     "build": "rm -rf types && rm -rf dist && tsc --project tsconfig.build.json"
   },
   "dependencies": {
