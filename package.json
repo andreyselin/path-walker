@@ -11,6 +11,6 @@
     "typescript": "^4.4.2"
   },
   "types": "./types",
-  "author": "",
+  "author": "Andrey Selin",
   "license": "ISC"
 }
