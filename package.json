@@ -1,6 +1,6 @@
 {
   "name": "pathwalker2d",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Utility class for moving objects along 2d path",
   "main": "dist/index.js",
   "scripts": {

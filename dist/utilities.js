@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getMovingOffsets = exports.getHypotenuseAndLegs = exports.utilities = void 0;
 const radianValue = Math.PI / 180;
 function getRadians(degrees) {
     return degrees * radianValue;
@@ -11,13 +14,14 @@ function getSin(direction) {
 function getCos(direction) {
     return direction === 90 ? 0 : Math.cos(getRadians(direction)) * -1;
 }
-export function utilities(distance, direction) {
+function utilities(distance, direction) {
     return {
         x: getSin(direction) * distance,
         y: getCos(direction) * distance,
     };
 }
-export function getHypotenuseAndLegs(source, destination) {
+exports.utilities = utilities;
+function getHypotenuseAndLegs(source, destination) {
     const legs = {
         x: destination.x - source.x,
         y: destination.y - source.y, // ?
@@ -27,8 +31,9 @@ export function getHypotenuseAndLegs(source, destination) {
     const hypotenuse = Math.sqrt(legs.x * legs.x + legs.y * legs.y);
     return { hypotenuse, legs };
 }
+exports.getHypotenuseAndLegs = getHypotenuseAndLegs;
 // Seems to require simplification:
-export function getMovingOffsets(hypotenuseAndLegs, speed) {
+function getMovingOffsets(hypotenuseAndLegs, speed) {
     const { hypotenuse, legs: diff } = hypotenuseAndLegs;
     let distance = hypotenuse > speed ? speed : hypotenuse;
     const coefficients = {
@@ -40,6 +45,7 @@ export function getMovingOffsets(hypotenuseAndLegs, speed) {
         y: coefficients.y * distance,
     };
 }
+exports.getMovingOffsets = getMovingOffsets;
 // console.log('1-->', getMovingOffsets(getHypotenuseAndLegs({ x: 20, y: 20 }, { x: 10, y: 10 }), 1));
 // console.log('2-->', getMovingOffsets(getHypotenuseAndLegs({ x: 20, y: 10 }, { x: 10, y: 20 }), 1));
 // console.log('3-->', getMovingOffsets(getHypotenuseAndLegs({ x: 10, y: 10 }, { x: 20, y: 20 }), 1));

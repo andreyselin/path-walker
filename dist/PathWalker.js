@@ -1,5 +1,8 @@
-import { getHypotenuseAndLegs, getMovingOffsets } from "./utilities";
-export class PathWalker {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PathWalker = void 0;
+const utilities_1 = require("./utilities");
+class PathWalker {
     constructor({ speed, path, onEachStep, initialCoords, onReachEnd }) {
         this.speed = speed;
         this.path = path;
@@ -11,7 +14,7 @@ export class PathWalker {
     getStepParams(inputTargetPathIndex) {
         let newTargetPathIndex = inputTargetPathIndex;
         const targetCoords = this.path[newTargetPathIndex];
-        let hypotenuseAndLegs = getHypotenuseAndLegs(this.currentCoords, targetCoords);
+        let hypotenuseAndLegs = (0, utilities_1.getHypotenuseAndLegs)(this.currentCoords, targetCoords);
         // We need this to decide if ending callback has to be called
         let isReachedPathEnd = false;
         // If point is about to be reached within this movement step
@@ -38,7 +41,7 @@ export class PathWalker {
     processStep() {
         const { newTargetPathIndex, isReachedPathEnd, hypotenuseAndLegs } = this.getStepParams(this.targetPathIndex);
         this.targetPathIndex = newTargetPathIndex;
-        const { x: xOffset, y: yOffset } = getMovingOffsets(hypotenuseAndLegs, this.speed);
+        const { x: xOffset, y: yOffset } = (0, utilities_1.getMovingOffsets)(hypotenuseAndLegs, this.speed);
         this.currentCoords = {
             x: this.currentCoords.x + xOffset,
             y: this.currentCoords.y + yOffset,
@@ -49,4 +52,5 @@ export class PathWalker {
         }
     }
 }
+exports.PathWalker = PathWalker;
 //# sourceMappingURL=PathWalker.js.map

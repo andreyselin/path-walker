@@ -1,14 +1,31 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "es2018",
+
+    "target": "es2021",
+    "strict": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "noImplicitAny": false, // Todo: set to true and fix
+    "strictNullChecks": false, // Todo: set to true
+
+
+    "rootDir": "./src",
+    "lib": ["dom", "esnext", "es2018"],
+    "module": "commonjs",
     "outDir": "dist",
     "sourceMap": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
     "declaration": true,
     "declarationDir": "./types"
   },
+  "include": ["src/**/*"],
   "exclude": [
     "node_modules"
   ]
